@@ -16,7 +16,7 @@ Feature: Access to Vehicle Contracts page
       | sales manager |
 
 
-    @wip
+  @AC2
   Scenario: Verify access restriction for Drivers
     Given I am logged in as a "Driver"
     When I attempt to navigate to the Vehicle Contracts page

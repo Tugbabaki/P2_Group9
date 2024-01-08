@@ -19,15 +19,6 @@ public class US04_StepDefs_SD {
     DashboardPage_Svetko dashboardPage = new DashboardPage_Svetko();
     WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
 
-    @Given("user is logged in as store manager")
-    public void userIsLoggedInAsStoreManager() {
-
-        Driver.getDriver().get(ConfigurationReader.getProperty("url"));
-
-        loginPage.userName.sendKeys(ConfigurationReader.getProperty("store_manager_username"));
-        loginPage.password.sendKeys(ConfigurationReader.getProperty("store_manager_password"));
-        loginPage.submit.click();
-    }
 
     @Given("user is logged in as a {string}")
     public void userIsLoggedInAsA(String userType) {
@@ -46,6 +37,7 @@ public class US04_StepDefs_SD {
         }
 
          */
+        Driver.getDriver().get(ConfigurationReader.getProperty("url"));
         loginPage.login(userType);
     }
 
@@ -69,7 +61,25 @@ public class US04_StepDefs_SD {
 
         Assert.assertEquals(expectedTitle, actualTitle);
         //Assert.assertEquals(expectedURL, actualURL);
-
     }
+
+
+
+    @Given("I am logged in as a {string}")
+    public void i_am_logged_in_as_a(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @When("I attempt to navigate to the Vehicle Contracts page")
+    public void i_attempt_to_navigate_to_the_vehicle_contracts_page() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @Then("I should see the message {string}")
+    public void i_should_see_the_message(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
 
 }
