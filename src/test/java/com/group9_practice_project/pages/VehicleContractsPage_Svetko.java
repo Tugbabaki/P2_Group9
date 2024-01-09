@@ -12,6 +12,7 @@ public class VehicleContractsPage_Svetko {
     }
 
 
+    @FindBy(xpath = "(//div[@class ='message'])[2]")
     public WebElement alertMessage;
 
 

@@ -2,6 +2,8 @@ package com.group9_practice_project.step_definitions;
 
 import com.group9_practice_project.pages.LoginPage;
 import com.group9_practice_project.pages.DashboardPage_Svetko;
+import com.group9_practice_project.pages.VehicleContractsPage_Svetko;
+import com.group9_practice_project.utilities.BrowserUtils;
 import com.group9_practice_project.utilities.ConfigurationReader;
 import com.group9_practice_project.utilities.Driver;
 import io.cucumber.java.en.Given;
@@ -18,6 +20,7 @@ public class US04_StepDefs_SD {
     LoginPage loginPage = new LoginPage();
     DashboardPage_Svetko dashboardPage = new DashboardPage_Svetko();
     WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+    VehicleContractsPage_Svetko vehicleContractsPage = new VehicleContractsPage_Svetko();
 
 
     @Given("user is logged in as a {string}")
@@ -37,16 +40,15 @@ public class US04_StepDefs_SD {
         }
 
          */
-        Driver.getDriver().get(ConfigurationReader.getProperty("url"));
         loginPage.login(userType);
     }
 
     @When("user navigate to the Vehicle Contracts page")
     public void userNavigateToTheVehicleContractsPage() {
 
+        BrowserUtils.sleep(3);
         dashboardPage.fleetLink.click();
         dashboardPage.vehicleContractsOption.click();
-
     }
     @Then("user should be on the Vehicle Contracts page")
     public void userShouldBeOnTheVehicleContractsPage() {
@@ -64,22 +66,12 @@ public class US04_StepDefs_SD {
     }
 
 
+    @Then("user should see the required message")
+    public void userShouldSeeTheRequiredMessage() {
 
-    @Given("I am logged in as a {string}")
-    public void i_am_logged_in_as_a(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
-    @When("I attempt to navigate to the Vehicle Contracts page")
-    public void i_attempt_to_navigate_to_the_vehicle_contracts_page() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
-    @Then("I should see the message {string}")
-    public void i_should_see_the_message(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
+        String expectedMessage = "You do not have permission to perform this action.";
+        String actualMessage = vehicleContractsPage.alertMessage.getText();
 
-
+        Assert.assertEquals(expectedMessage,actualMessage);
+    }
 }

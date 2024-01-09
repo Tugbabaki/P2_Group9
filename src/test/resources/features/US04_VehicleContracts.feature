@@ -1,4 +1,4 @@
-@us4-VehicleContracts
+@US04
 Feature: Access to Vehicle Contracts page
 
   User story:
@@ -18,9 +18,9 @@ Feature: Access to Vehicle Contracts page
 
   @AC2
   Scenario: Verify access restriction for Drivers
-    Given I am logged in as a "Driver"
-    When I attempt to navigate to the Vehicle Contracts page
-    Then I should see the message "You do not have permission to perform this action."
+    Given user is logged in as a "driver"
+    When user navigate to the Vehicle Contracts page
+    Then user should see the required message
 
 
 
