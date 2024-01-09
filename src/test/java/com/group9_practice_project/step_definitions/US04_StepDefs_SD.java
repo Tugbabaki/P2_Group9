@@ -4,7 +4,6 @@ import com.group9_practice_project.pages.LoginPage;
 import com.group9_practice_project.pages.DashboardPage_Svetko;
 import com.group9_practice_project.pages.VehicleContractsPage_Svetko;
 import com.group9_practice_project.utilities.BrowserUtils;
-import com.group9_practice_project.utilities.ConfigurationReader;
 import com.group9_practice_project.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -25,21 +24,6 @@ public class US04_StepDefs_SD {
 
     @Given("user is logged in as a {string}")
     public void userIsLoggedInAsA(String userType) {
-        /*
-        switch (userType){
-            case "Store manager":
-                loginPage.userName.sendKeys(ConfigurationReader.getProperty("store_manager_username"));
-                loginPage.password.sendKeys(ConfigurationReader.getProperty("store_manager_password"));
-                loginPage.submit.click();
-                break;
-            case "Sales manager":
-                loginPage.userName.sendKeys(ConfigurationReader.getProperty("sales_manager_username"));
-                loginPage.password.sendKeys(ConfigurationReader.getProperty("sales_manager_password"));
-                loginPage.submit.click();
-                break;
-        }
-
-         */
         loginPage.login(userType);
     }
 
@@ -54,7 +38,7 @@ public class US04_StepDefs_SD {
     public void userShouldBeOnTheVehicleContractsPage() {
 
         String expectedTitle = "All - Vehicle Contract - Entities - System - Car - Entities - System";
-        String expectedURL = "https://qa1.transmuda.com/entity/Extend_Entity_VehicleContract";
+        String expectedURL = "https://qa.transmuda.com/entity/Extend_Entity_VehicleContract";
 
         wait.until(ExpectedConditions.titleContains(expectedTitle));
 
@@ -62,7 +46,7 @@ public class US04_StepDefs_SD {
         String actualURL = Driver.getDriver().getCurrentUrl();
 
         Assert.assertEquals(expectedTitle, actualTitle);
-        //Assert.assertEquals(expectedURL, actualURL);
+        Assert.assertEquals(expectedURL, actualURL);
     }
 
     @Then("user should see the required message")
