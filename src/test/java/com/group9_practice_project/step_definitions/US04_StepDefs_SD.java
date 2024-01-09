@@ -1,7 +1,6 @@
 package com.group9_practice_project.step_definitions;
 
 import com.group9_practice_project.pages.LoginPage;
-import com.group9_practice_project.pages.DashboardPage_Svetko;
 import com.group9_practice_project.pages.VehicleContractsPage_Svetko;
 import com.group9_practice_project.utilities.BrowserUtils;
 import com.group9_practice_project.utilities.ConfigurationReader;
@@ -18,7 +17,6 @@ import java.time.Duration;
 public class US04_StepDefs_SD {
 
     LoginPage loginPage = new LoginPage();
-    DashboardPage_Svetko dashboardPage = new DashboardPage_Svetko();
     WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
     VehicleContractsPage_Svetko vehicleContractsPage = new VehicleContractsPage_Svetko();
 
@@ -32,9 +30,10 @@ public class US04_StepDefs_SD {
     public void userNavigateToTheVehicleContractsPage() {
 
         BrowserUtils.sleep(3);
-        dashboardPage.fleetLink.click();
-        dashboardPage.vehicleContractsOption.click();
+        vehicleContractsPage.fleetLink.click();
+        vehicleContractsPage.vehicleContractsOption.click();
     }
+
     @Then("user should be on the Vehicle Contracts page")
     public void userShouldBeOnTheVehicleContractsPage() {
 
@@ -58,6 +57,6 @@ public class US04_StepDefs_SD {
         String expectedMessage = "You do not have permission to perform this action.";
         String actualMessage = vehicleContractsPage.alertMessage.getText();
 
-        Assert.assertEquals(expectedMessage,actualMessage);
+        Assert.assertEquals(expectedMessage, actualMessage);
     }
 }
