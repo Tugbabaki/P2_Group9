@@ -4,6 +4,7 @@ import com.group9_practice_project.pages.LoginPage;
 import com.group9_practice_project.pages.DashboardPage_Svetko;
 import com.group9_practice_project.pages.VehicleContractsPage_Svetko;
 import com.group9_practice_project.utilities.BrowserUtils;
+import com.group9_practice_project.utilities.ConfigurationReader;
 import com.group9_practice_project.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -37,8 +38,10 @@ public class US04_StepDefs_SD {
     @Then("user should be on the Vehicle Contracts page")
     public void userShouldBeOnTheVehicleContractsPage() {
 
+        String testEnv = ConfigurationReader.getProperty("url");
+
         String expectedTitle = "All - Vehicle Contract - Entities - System - Car - Entities - System";
-        String expectedURL = "https://qa3.vytrack.com/entity/Extend_Entity_VehicleContract";
+        String expectedURL = testEnv + "/entity/Extend_Entity_VehicleContract";
 
         wait.until(ExpectedConditions.titleContains(expectedTitle));
 
