@@ -65,7 +65,6 @@ public class US04_StepDefs_SD {
         //Assert.assertEquals(expectedURL, actualURL);
     }
 
-
     @Then("user should see the required message")
     public void userShouldSeeTheRequiredMessage() {
 
