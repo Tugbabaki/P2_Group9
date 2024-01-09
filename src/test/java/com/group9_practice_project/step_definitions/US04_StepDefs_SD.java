@@ -38,7 +38,7 @@ public class US04_StepDefs_SD {
     public void userShouldBeOnTheVehicleContractsPage() {
 
         String expectedTitle = "All - Vehicle Contract - Entities - System - Car - Entities - System";
-        String expectedURL = "https://qa.transmuda.com/entity/Extend_Entity_VehicleContract";
+        String expectedURL = "https://qa3.vytrack.com/entity/Extend_Entity_VehicleContract";
 
         wait.until(ExpectedConditions.titleContains(expectedTitle));
 
