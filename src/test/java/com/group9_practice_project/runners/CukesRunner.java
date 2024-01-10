@@ -9,7 +9,8 @@ import org.junit.runner.RunWith;
         plugin = {
                 "html:target/cucumber-reports.html",
                 "rerun:target/rerun.txt",
-                "me.jvt.cucumber.report.PrettyReports:target/cucumber"
+                "me.jvt.cucumber.report.PrettyReports:target/cucumber",
+                "json:target/cucumber.json" //to run our smoke test
         },
         features = "src/test/resources/features",
         glue = "com/group9_practice_project/step_definitions",
