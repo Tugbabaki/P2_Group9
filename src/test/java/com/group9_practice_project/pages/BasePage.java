@@ -36,6 +36,10 @@ public class BasePage {
     @FindBy(linkText = "My User")
     public WebElement myUser;
 
+    @FindBy(linkText = "Learn how to use this space")
+    public static WebElement pinBarLink;
+
+
     public BasePage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
