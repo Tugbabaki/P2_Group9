@@ -9,7 +9,8 @@ Feature: Access to Vehicle Contracts page
   Scenario Outline: TC01_SD Verify that Store managers and Sales managers can access the Vehicle Contracts page.
     Given user is logged in as a "<UserType>"
     When user navigate to the Vehicle Contracts page
-    Then user should be on the Vehicle Contracts page
+    Then user should see title as required
+    And user should see URL as required
 
     Examples:
       | UserType      |

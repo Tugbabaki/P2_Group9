@@ -5,6 +5,7 @@ import com.group9_practice_project.pages.VehicleContractsPage_Svetko;
 import com.group9_practice_project.utilities.BrowserUtils;
 import com.group9_practice_project.utilities.ConfigurationReader;
 import com.group9_practice_project.utilities.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -34,22 +35,29 @@ public class US04_StepDefs_SD {
         vehicleContractsPage.vehicleContractsOption.click();
     }
 
-    @Then("user should be on the Vehicle Contracts page")
-    public void userShouldBeOnTheVehicleContractsPage() {
-
-        String testEnv = ConfigurationReader.getProperty("url");
+    @Then("user should see title as required")
+    public void userShouldSeeTitleAsRequired() {
 
         String expectedTitle = "All - Vehicle Contract - Entities - System - Car - Entities - System";
-        String expectedURL = testEnv + "/entity/Extend_Entity_VehicleContract";
-
         wait.until(ExpectedConditions.titleContains(expectedTitle));
 
         String actualTitle = Driver.getDriver().getTitle();
-        String actualURL = Driver.getDriver().getCurrentUrl();
 
         Assert.assertEquals(expectedTitle, actualTitle);
+    }
+
+    @And("user should see URL as required")
+    public void userShouldSeeURLAsRequired() {
+
+        String testEnv = ConfigurationReader.getProperty("url");
+
+        String expectedURL = testEnv + "/entity/Extend_Entity_VehicleContract";
+        String actualURL = Driver.getDriver().getCurrentUrl();
+
         Assert.assertEquals(expectedURL, actualURL);
     }
+
+
 
     @Then("user should see the required message")
     public void userShouldSeeTheRequiredMessage() {
@@ -59,4 +67,8 @@ public class US04_StepDefs_SD {
 
         Assert.assertEquals(expectedMessage, actualMessage);
     }
+
+
+
+
 }
