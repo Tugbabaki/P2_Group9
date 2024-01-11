@@ -14,13 +14,13 @@ public class HowToUsePinBarPage {
     }
     
     @FindBy(css = "html > body > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > div > h3")
-    public static WebElement howToUsePinbar;
+    public WebElement howToUsePinbar;
 
     @FindBy(css = "img")
-    public static WebElement pinBarImage;
+    public WebElement pinBarImage;
 
     @FindBy(css = "html > body > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > div > p:nth-of-type(1)")
-    public static WebElement usePinIcon;
+    public WebElement usePinIcon;
     
     
     
