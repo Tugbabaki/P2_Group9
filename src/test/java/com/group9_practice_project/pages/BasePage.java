@@ -37,7 +37,7 @@ public class BasePage {
     public WebElement myUser;
 
     @FindBy(linkText = "Learn how to use this space")
-    public static WebElement pinBarLink;
+    public WebElement pinBarLink;
 
 
     public BasePage() {
