@@ -14,7 +14,18 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
 
-public class BasePage {
+public abstract class BasePage {
+
+    public BasePage() {
+        PageFactory.initElements(Driver.getDriver(),this);
+    }
+
+    @FindBy(linkText = "Fleet")
+    public WebElement fleetLink;
+
+    @FindBy(linkText = "Vehicle Contracts")
+    public WebElement vehicleContractsOption;
+
 
 
     @FindBy(css = "span.title-level-1")
@@ -35,10 +46,6 @@ public class BasePage {
 
     @FindBy(linkText = "My User")
     public WebElement myUser;
-
-    public BasePage() {
-        PageFactory.initElements(Driver.getDriver(), this);
-    }
 
 
     /**

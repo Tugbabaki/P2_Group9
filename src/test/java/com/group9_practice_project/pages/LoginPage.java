@@ -1,5 +1,6 @@
 package com.group9_practice_project.pages;
 
+import com.group9_practice_project.utilities.ConfigurationReader;
 import com.group9_practice_project.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,8 +14,6 @@ public class LoginPage {
     @FindBy(id="prependedInput")
     public WebElement userName;
 
-
-
     @FindBy(id="prependedInput2")
     public WebElement password;
 
@@ -27,6 +26,14 @@ public class LoginPage {
         password.sendKeys(passwordStr);
         submit.click();
         // verification that we logged
+    }
+
+    public void login(String userType){
+
+        userType = userType.replace(" ","_");
+        userName.sendKeys(ConfigurationReader.getProperty(userType + "_username"));
+        password.sendKeys(ConfigurationReader.getProperty(userType + "_password"));
+        submit.click();
     }
 
 }
