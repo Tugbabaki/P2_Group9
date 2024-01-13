@@ -1,4 +1,9 @@
-@us03
+@B31G9-122
+Feature: Default
+
+
+  @B31G9-123
+  Scenario Outline: US03-TC01_DC As a user, I want to learn how to use the pinbar.
 Feature:   "As a user, I want to learn how to use the pinbar"
 
 
@@ -8,12 +13,9 @@ Feature:   "As a user, I want to learn how to use the pinbar"
     Then the user can see “How To Use Pinbar”
     And the user can see “Use the pin icon on the right top corner of page to create fast access link in the pinbar.”
     And the user should to see image
-    #Expected source:/bundles/oronavigation/images/pinbar-location.jpg
+		    #Expected source:/bundles/oronavigation/images/pinbar-location.jpg
     Examples:
       | userType |
       | store_manager |
       | sales_manager |
       | driver |
-
-
-

@@ -3,6 +3,7 @@ package com.group9_practice_project.step_definitions;
 import com.group9_practice_project.pages.BasePage;
 import com.group9_practice_project.pages.HowToUsePinBarPage;
 import com.group9_practice_project.pages.LoginPage;
+import com.group9_practice_project.utilities.BrowserUtils;
 import com.group9_practice_project.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -24,10 +25,12 @@ public class US03_StepDef {
     }
     @When("the user click the “Learn how to use this space”")
     public void the_user_click_the_learn_how_to_use_this_space() {
+        BrowserUtils.sleep(5);
         BP.pinBarLink.click();
     }
     @Then("the user can see “How To Use Pinbar”")
     public void the_user_can_see_how_to_use_pinbar() {
+        BrowserUtils.sleep(3);
         Assert.assertEquals("How To Use Pinbar", pinBar.howToUsePinbar.getText());
     }
     @Then("the user can see “Use the pin icon on the right top corner of page to create fast access link in the pinbar.”")
