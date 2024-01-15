@@ -14,9 +14,6 @@ public class VehiclesPage extends BasePage{
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(xpath = "((//li[@class='dropdown dropdown-level-1'])[1]")
-    public WebElement fleetModuleDropdown;
-
 
     @FindBy(xpath = "(((//ul[@class='dropdown-menu dropdown-menu-level-1 menu menu-level-1'])[2])//span[@class='title title-level-2'])[1]")
     public WebElement vehicles;
