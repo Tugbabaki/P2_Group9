@@ -1,12 +1,15 @@
-@vyTruck
-Feature:  Verify column visibility on the Vehicles Model page
-
+@B31G9-134
+  @vyTruck
+Feature: Verify column visibility on the Vehicles Model page
+  User Story:
   As a  Store manager or Sales manager I can see 10 certain columns on the Vehicles Model page.
+
 
   Background: User is on the login page
     Given user is on the VyTruck login page
 
-  Scenario Outline: Verify column visibility for a "<role>"
+@B31G9-129
+  Scenario Outline:US05_AC1 Verify column visibility for a "<role>"
     When the user logs in with username "<username>" and password "UserUser123"
     And user navigates to Vehicles Model page
     Then User is able to see the following columns on the page
@@ -32,8 +35,9 @@ Feature:  Verify column visibility on the Vehicles Model page
       | sales manager | salesmanager112 |
       | sales manager | salesmanager121 |
 
-  @message
-  Scenario Outline: Verifying the informational message for a "driver"
+
+  @B31G9-131
+  Scenario Outline: US05_AC2 Verifying the informational message for a "driver"
     When  the user logs in with username "<username>" and password "UserUser123"
     And user clicks on Vehicles Model page
     Then User is able to see the error message "You do not have permission to perform this action."
