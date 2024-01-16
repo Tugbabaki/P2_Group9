@@ -15,13 +15,13 @@ Feature: Default
 	@B31G9-136
 	Scenario Outline: AC02 - TB - Verify that users can check the first checkbox to select all the cars
 		Given user is logged in as a "<UserType>"
-		    When User clicks on Vehicles Page under Fleet Module Dropdown
-		    Then Verify that users can check the first checkbox to select all the cars
+		When User clicks on Vehicles Page under Fleet Module Dropdown
+		Then Verify that users can check the first checkbox to select all the cars
 
-		    Examples:
-		      | UserType      |
-		      | store manager |
-		      | sales manager |
+		Examples:
+			| UserType      |
+			| store manager |
+			| sales manager |
 
 
 	@B31G9-137
