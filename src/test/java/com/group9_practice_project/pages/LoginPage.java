@@ -15,8 +15,6 @@ public class LoginPage {
     @FindBy(id="prependedInput")
     public WebElement userName;
 
-
-
     @FindBy(id="prependedInput2")
     public WebElement password;
 
@@ -31,6 +29,14 @@ public class LoginPage {
         // verification that we logged
     }
     public void login(String userType){
+        userName.sendKeys(ConfigurationReader.getProperty(userType + "_username"));
+        password.sendKeys(ConfigurationReader.getProperty(userType + "_password"));
+        submit.click();
+    }
+
+    public void login(String userType){
+
+        userType = userType.replace(" ","_");
         userName.sendKeys(ConfigurationReader.getProperty(userType + "_username"));
         password.sendKeys(ConfigurationReader.getProperty(userType + "_password"));
         submit.click();
