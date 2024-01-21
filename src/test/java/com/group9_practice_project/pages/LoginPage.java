@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
     public LoginPage(){
+
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
@@ -26,6 +27,11 @@ public class LoginPage {
         password.sendKeys(passwordStr);
         submit.click();
         // verification that we logged
+    }
+    public void login(String userType){
+        userName.sendKeys(ConfigurationReader.getProperty(userType + "_username"));
+        password.sendKeys(ConfigurationReader.getProperty(userType + "_password"));
+        submit.click();
     }
 
     public void login(String userType){
